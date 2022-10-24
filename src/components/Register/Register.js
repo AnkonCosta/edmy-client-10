@@ -1,7 +1,38 @@
-import React from 'react';
-import './Register.css'
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import './Register.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoURL, email, password)
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset();
+                toast.success('Your account is created successfully.');
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err)
+
+            })
+    }
+
     return (
         <div>
             <div className="container mx-auto ">
@@ -16,9 +47,16 @@ const Register = () => {
                                 <h2>Register</h2>
                             </div>
                             <div className="row">
-                                <form control="" className="form-group">
+                                <form onSubmit={handleSubmit} control="" className="form-group">
                                     <div className="row">
-                                        <input type="text" name="username" id="username" className="form__input" placeholder="Username" />
+                                        <input type="text" name="name" id="name" className="form__input" placeholder="Full Name" />
+                                    </div>
+                                    <div className="row">
+                                        <input type="text" name="photoURL" id="" className="form__input" placeholder="PhotoURL" />
+                                    </div>
+                                    <div className="row">
+                                        <input type="email" name="email" id="username" className="form__input" placeholder="Your email" />
+
                                     </div>
                                     <div className="row">
                                         <span className="fa fa-lock"></span>
@@ -34,8 +72,9 @@ const Register = () => {
                                 </form>
                             </div>
                             <div className="row">
-                                <p>Don't have an account? <a href="#">Register Here</a></p>
+                                <p>Already have an account? <Link to='/login' >Login Here</Link ></p>
                             </div>
+                            <Toaster></Toaster>
                         </div>
                     </div>
                 </div>

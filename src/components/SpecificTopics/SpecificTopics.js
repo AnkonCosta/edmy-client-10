@@ -1,12 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { Row } from 'react-bootstrap';
 import CoursesOutlet from '../../shared/CoursesOutlet';
-import Row from 'react-bootstrap/Row';
 
-const Courses = () => {
+const SpecificTopics = () => {
     const courses = useLoaderData();
     console.log(courses)
-
 
     return (
         <div>
@@ -14,15 +13,12 @@ const Courses = () => {
                 {
                     courses.map(course => <CoursesOutlet
                         key={course._id}
-                        const course={course}
-                    >
-
-                    </CoursesOutlet>)
+                        course={course}
+                    ></CoursesOutlet>)
                 }
             </Row>
-
-        </div >
+        </div>
     );
 };
 
-export default Courses;
+export default SpecificTopics;

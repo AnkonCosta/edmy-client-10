@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './layouts/Main';
@@ -8,6 +7,8 @@ import Courses from './components/Courses/Courses';
 import FAQs from './components/FAQ/FAQs';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import CoursePageLayout from './layouts/CoursePageLayout';
+import SpecificTopics from './components/SpecificTopics/SpecificTopics';
 
 function App() {
 
@@ -25,8 +26,24 @@ function App() {
           element: <Blog></Blog>
         },
         {
-          path: '/courses',
-          element: <Courses></Courses>
+          path: '/',
+          element: <CoursePageLayout></CoursePageLayout>,
+          children: [
+            {
+              path: '/courses',
+              element: <Courses></Courses>,
+              loader: () => {
+                return fetch(`http://localhost:5000/courses`)
+              }
+            },
+            {
+              path: '/courses/:id',
+              element: <SpecificTopics></SpecificTopics>,
+              loader: ({ params }) => {
+                return fetch(`http://localhost:5000/topics/${params.id}`)
+              }
+            },
+          ]
         },
         {
           path: '/faqs',
@@ -45,7 +62,7 @@ function App() {
   ])
 
   return (
-    <div className="App">
+    <div >
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
