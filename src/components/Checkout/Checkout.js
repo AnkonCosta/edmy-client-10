@@ -1,8 +1,11 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
 import './Checkout.css'
 
 const Checkout = () => {
+    const courseInfo = useLoaderData();
+    const { _id, title, price, image_url } = courseInfo;
 
     const hotToastOn = () => {
         toast.success('Thanks for making the payment.');
@@ -10,6 +13,16 @@ const Checkout = () => {
     return (
         <div>
             <div class="container">
+
+                <div className='d-flex w-75 border my-5 shadow rounded justify-content-between align-items-center'>
+                    <img className='img-fluid w-50' src={image_url} alt="" />
+                    <div className='pe-5'>
+                        <p className='h3 fw-bold'>{title}</p>
+                        <p>Course Id: <span className='text-warning fw-bold'>{_id}</span></p>
+                        <p>Price: <span className='text-warning fw-bold'>{price}</span></p>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-lg-4 mb-lg-0 mb-3">
                         <div class="card p-3">

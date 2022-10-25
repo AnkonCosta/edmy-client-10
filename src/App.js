@@ -30,7 +30,10 @@ function App() {
           element: <Blog></Blog>
         },
         {
-          path: '/checkout',
+          path: '/checkout/:id',
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/courses/${params.id}`)
+          },
           element: <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>

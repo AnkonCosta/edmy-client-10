@@ -13,7 +13,7 @@ const TopicsDetails = () => {
     });
     const detailsTopic = useLoaderData();
     console.log(detailsTopic)
-    const { details, image_url, rating, author, title, total_sell, price } = detailsTopic;
+    const { details, image_url, rating, author, title, total_sell, _id, price } = detailsTopic;
     console.log(price)
     return (
         <div ref={componentRef} style={{ width: '100%', height: window.innerHeight }} className='mb-5'>
@@ -57,7 +57,7 @@ const TopicsDetails = () => {
                                     <p className='m-0 text-warning fw-bold'>{total_sell}</p>
                                 </div>
                             </div>
-                            <Link to='/checkout'><button className='btn btn-outline-warning fw-semibold'>Get Premium Access</button></Link>
+                            <Link to={`/checkout/${_id}`}><button className='btn btn-outline-warning fw-semibold'>Get Premium Access</button></Link>
 
                         </div>
                     </div>

@@ -12,13 +12,12 @@ const CoursesOutlet = ({ course }) => {
 
 
             <Col>
-                <Card className='shadoww'>
+                <Card className='shadow rounded'>
                     <Card.Img style={{ height: '300px' }} variant="top" src={image_url} />
                     <Card.Body>
                         <Card.Title> {title}</Card.Title>
                         <Card.Text>{details.slice(0, 80)} <Link to={`/details/${_id}`} > show more...</Link></Card.Text>
                     </Card.Body>
-                    <Button className='mx-auto' variant="primary">Details</Button>
                 </Card>
             </Col>
         </div >
