@@ -1,13 +1,14 @@
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
     const { signIn, googleProviderLogin, FacebookProviderLogin, setLoading } = useContext(AuthContext);
-
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const GoogleProvider = new GoogleAuthProvider();
     const FacebookProvider = new FacebookAuthProvider();
     const [error, setError] = useState('');
@@ -26,7 +27,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset();
-                navigate('/')
+                navigate(from, { replace: true })
 
             })
             .catch(err => {
@@ -43,6 +44,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
 
             })
             .catch(err => console.log(err))
@@ -52,6 +54,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
 
             })
             .catch(err => console.log(err))

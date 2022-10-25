@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, googleProviderLogin, FacebookProviderLogin } = useContext(AuthContext);
+    const { createUser, googleProviderLogin, FacebookProviderLogin, updateUserProfile } = useContext(AuthContext);
     const GoogleProvider = new GoogleAuthProvider();
     const FacebookProvider = new FacebookAuthProvider();
 
@@ -27,6 +27,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset();
+                handleUpdateUserProfile(name, photoURL)
                 toast.success('Your account is created successfully.');
                 navigate('/')
             })
@@ -53,6 +54,18 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+
+            })
+            .catch(err => console.log(err))
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(result => {
 
             })
             .catch(err => console.log(err))

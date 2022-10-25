@@ -43,7 +43,7 @@ function Header() {
                         <Navbar.Brand >
 
                             {
-                                user?.photoURL ? <img src={user.photoURL} alt="" />
+                                user?.photoURL ? <img className='rounded-circle mt-3 border' height='40px' src={user.photoURL} alt="" />
                                     :
                                     <span>
                                         <FaUserCircle width='50px' className='mt-4'></FaUserCircle>
