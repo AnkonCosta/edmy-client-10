@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
+
     return (
         <div>
             <div class="d-flex align-items-center justify-content-center vh-100">
@@ -14,6 +15,7 @@ const NotFound = () => {
                     <Link to='/' class="btn btn-primary">Go Home</Link>
                 </div>
             </div>
+
         </div>
     );
 };

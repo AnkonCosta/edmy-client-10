@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import './TopicDetails.css';
 import { FaStar } from "react-icons/fa";
+import { useReactToPrint } from 'react-to-print';
 
 const TopicsDetails = () => {
 
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        onAfterPrint: () => alert('Print Successfull.')
+    });
     const detailsTopic = useLoaderData();
     console.log(detailsTopic)
     const { details, image_url, rating, author, title, total_sell, price } = detailsTopic;
     console.log(price)
     return (
-        <div className='my-5'>
+        <div ref={componentRef} style={{ width: '100%', height: window.innerHeight }} className='mb-5'>
             <div className='details-page-hero d-flex align-items-center justify-content-center text-white' style={{ backgroundImage: `Url("${image_url}")` }}>
-                <h1 className='h1'>{title}</h1>
+
+                <div >
+                    <h1 className='h1'>{title}</h1>
+                    <button className='w-100 btn btn-danger' onClick={handlePrint}>Print This Page</button>
+                </div>
             </div>
 
 

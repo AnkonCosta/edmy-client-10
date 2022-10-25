@@ -1,0 +1,10 @@
+.blog-bg {
+    background-image: url(https://media.istockphoto.com/photos/blogging-woman-reading-blog-picture-id887987150?b=1&k=20&m=887987150&s=170667a&w=0&h=vPDQ1M7evmqx71sJz0-pasYn9RkD28bPPCWddBDx9vM=);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
+
+}
