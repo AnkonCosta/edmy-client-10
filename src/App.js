@@ -12,6 +12,7 @@ import SpecificTopics from './components/SpecificTopics/SpecificTopics';
 import TopicsDetails from './components/TopicsDetails/TopicsDetails';
 import Checkout from './components/Checkout/Checkout';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
 
@@ -74,8 +75,15 @@ function App() {
             return fetch(`http://localhost:5000/courses/${params.id}`)
           }
         }
+
       ]
+
+    },
+    {
+      path: '*',
+      element: <NotFound></NotFound>
     }
+
   ])
 
   return (
