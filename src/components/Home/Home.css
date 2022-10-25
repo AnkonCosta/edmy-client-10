@@ -1,0 +1,13 @@
+.bg-img {
+    background-image: url(https://edmy-react.hibootstrap.com/images/banner/banner-bg.jpg);
+    height: 800px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.hero-text {
+    font-size: 3em !important;
+}

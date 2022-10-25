@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaUserCircle } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -12,7 +12,7 @@ function Header() {
     const { user } = useContext(AuthContext);
     console.log(user)
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" className='border border-bottom-success'>
             <Container fluid>
                 <Navbar.Brand href="#home">
                     <img
@@ -26,33 +26,45 @@ function Header() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
+                        className="mx-auto my-2 my-lg-0"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <NavLink to='/'>Home</NavLink>
-                        <NavLink to='/courses'>Courses</NavLink>
-                        <NavLink to='/blog' >
+                        <NavLink className='mx-3 fw-semibold text-decoration-none text-success' to='/'>Home</NavLink>
+                        <NavLink className='mx-3 fw-semibold text-decoration-none text-success' to='/courses'>Courses</NavLink>
+                        <NavLink className='mx-3 fw-semibold text-decoration-none text-success' to='/blog' >
                             Blog
                         </NavLink>
-                        <NavLink to='/faqs' >
+                        <NavLink className='mx-3 fw-semibold text-decoration-none text-success' to='/faqs' >
                             FAQ's
                         </NavLink>
                     </Nav>
                     <Form className="d-flex">
                         <Navbar.Brand >
-                            <img
-                                src="site.png"
-                                width="30"
-                                height="30"
-                                className="d-inline-block align-top"
-                                alt="React Bootstrap logo"
-                            />
+
+                            {
+                                user?.photoURL ? <img
+                                    rounded
+                                    src={user.photoURL}
+                                    width="30"
+                                    height="30"
+                                    className="d-inline-block align-top"
+                                    alt="React Bootstrap logo"
+                                    roundedCircle
+                                />
+                                    :
+                                    <FaUserCircle width='50px' className='mt-4'></FaUserCircle>
+                            }
                         </Navbar.Brand>
 
 
                         {
-                            user?.uid ? <Button className='mx-2' variant="outline-success"><Link to=''>Logout</Link></Button>
+                            user?.uid ? <>
+                                <Button className='mx-2' variant="outline-success"><Link to=''>Logout</Link></Button>
+
+
+
+                            </>
                                 :
                                 <>
                                     <Button className='mx-2' variant="outline-success"><Link to='/register'>Register</Link></Button>

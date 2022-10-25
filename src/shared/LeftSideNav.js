@@ -11,16 +11,22 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-        <div style={{
+        <div className='shadow ps-5' style={{
             position: ' -webkit-sticky',
             position: 'sticky',
             top: '0'
         }
         }>
-            <h3>This is Left side nav.</h3>
+            <div class="btn-group center-btn" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary">Home</button>
+                <button type="button" class="btn btn-outline-success">Blog</button>
+                <button type="button" class="btn btn-outline-danger">FAQ's</button>
+            </div>
             {
                 topics.map(topic => <p key={topic.id}>
-                    <Link to={`/courses/${topic.id}`}> {topic.name}</Link>
+                    <button className='btn btn-success '>
+                        <Link className='fw-semibold text-white text-decoration-none' to={`/courses/${topic.id}`}> {topic.name}</Link>
+                    </button>
                 </p>)
             }
         </div >
