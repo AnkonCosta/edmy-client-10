@@ -103,8 +103,8 @@ const Register = () => {
                                         <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
                                     </div>
                                     <div className='d-flex'>
-                                        <button onClick={handleGoogleSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Google</button>
-                                        <button onClick={handleFacebookSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Facebook</button>
+                                        <p onClick={handleGoogleSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Google</p>
+                                        <p onClick={handleFacebookSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Facebook</p>
                                     </div>
                                     <div>
                                         <button className='btn btn-success'>Submit</button>

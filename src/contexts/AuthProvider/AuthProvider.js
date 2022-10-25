@@ -6,30 +6,30 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoaading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
     //1. create user with email and password
     const createUser = (email, password) => {
-        setLoaading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     };
 
     //2. login with email and password 
 
     const signIn = (email, password) => {
-        setLoaading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     //3. logOut from the website 
     const logOut = () => {
-        setLoaading(true)
+        setLoading(true)
         return signOut(auth);
     }
 
     // 4.Google login 
     const googleProviderLogin = (provider) => {
-        setLoaading(true)
+        setLoading(true)
         return signInWithPopup(auth, provider);
 
     }
@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const FacebookProviderLogin = (provider) => {
-        setLoaading(true)
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
-            setLoaading(false)
+            setLoading(false)
         });
         return () => unsubscribe();
     }, [])
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    const authInfo = { user, createUser, logOut, signIn, loading, googleProviderLogin, FacebookProviderLogin, setLoaading, updateUserProfile }
+    const authInfo = { user, createUser, logOut, signIn, loading, setLoading, googleProviderLogin, FacebookProviderLogin, updateUserProfile }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
