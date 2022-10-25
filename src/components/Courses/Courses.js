@@ -9,7 +9,7 @@ const Courses = () => {
 
 
     return (
-        <div>
+        <div className='my-5'>
             <Row xs={1} lg={2} className="g-4">
                 {
                     courses.map(course => <CoursesOutlet

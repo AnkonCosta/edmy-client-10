@@ -3,9 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Register.css';
 import toast, { Toaster } from 'react-hot-toast';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleProviderLogin, FacebookProviderLogin } = useContext(AuthContext);
+    const GoogleProvider = new GoogleAuthProvider();
+    const FacebookProvider = new FacebookAuthProvider();
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -29,8 +32,30 @@ const Register = () => {
             })
             .catch(err => {
                 console.log(err)
+                navigate('/')
 
             })
+    }
+
+
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(GoogleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
+
+            })
+            .catch(err => console.log(err))
+    }
+    const handleFacebookSignIn = () => {
+        FacebookProviderLogin(FacebookProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -40,6 +65,8 @@ const Register = () => {
                     <div className="col-md-4 text-center company__info">
                         <span className="company__logo"><h2><span className="fa fa-android"></span></h2></span>
                         <h4 className="company_title">Edmy</h4>
+                        <button onClick={handleGoogleSignIn} className='ms-4 d-none d-md-block btn btn-outline-warning fw-semibold'>Google</button>
+                        <button onClick={handleFacebookSignIn} className='ms-4 d-none d-md-block btn btn-outline-warning fw-semibold'>Facebook</button>
                     </div>
                     <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
                         <div className="container-fluid">
@@ -62,12 +89,12 @@ const Register = () => {
                                         <span className="fa fa-lock"></span>
                                         <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
                                     </div>
-                                    <div className="row">
-                                        <input type="checkbox" name="remember_me" id="remember_me" className="" />
-                                        <label htmlFor="remember_me">Remember Me!</label>
+                                    <div className='d-flex'>
+                                        <button onClick={handleGoogleSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Google</button>
+                                        <button onClick={handleFacebookSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Facebook</button>
                                     </div>
-                                    <div className="row">
-                                        <input type="submit" value="Submit" className="btn" />
+                                    <div>
+                                        <button className='btn btn-success'>Submit</button>
                                     </div>
                                 </form>
                             </div>

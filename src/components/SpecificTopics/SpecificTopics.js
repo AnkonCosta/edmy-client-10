@@ -8,7 +8,7 @@ const SpecificTopics = () => {
     console.log(courses)
 
     return (
-        <div>
+        <div className='my-5 py-2'>
             <Row xs={1} lg={2} className="g-4">
                 {
                     courses.map(course => <CoursesOutlet

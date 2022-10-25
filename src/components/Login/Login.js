@@ -1,3 +1,4 @@
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
@@ -5,7 +6,10 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleProviderLogin, FacebookProviderLogin, setLoading } = useContext(AuthContext);
+
+    const GoogleProvider = new GoogleAuthProvider();
+    const FacebookProvider = new FacebookAuthProvider();
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -29,6 +33,28 @@ const Login = () => {
                 console.log(err)
                 setError(toast.error(err.message))
             })
+            .finally(() => {
+                setLoading(false)
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleProviderLogin(GoogleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(err => console.log(err))
+    }
+    const handleFacebookSignIn = () => {
+        FacebookProviderLogin(FacebookProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -39,6 +65,8 @@ const Login = () => {
                     <div className="col-md-4 text-center company__info">
                         <span className="company__logo"><h2><span className="fa fa-android"></span></h2></span>
                         <h4 className="company_title">Your Company Logo</h4>
+                        <button onClick={handleGoogleSignIn} className='ms-4 d-none d-md-block btn btn-outline-warning fw-semibold'>Google</button>
+                        <button onClick={handleFacebookSignIn} className='ms-4 d-none d-md-block btn btn-outline-warning fw-semibold'>Facebook</button>
                     </div>
                     <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
                         <div className="container-fluid">
@@ -54,12 +82,12 @@ const Login = () => {
                                         <span className="fa fa-lock"></span>
                                         <input type="password" name="password" id="password" className="form__input" placeholder="Password" />
                                     </div>
-                                    <div className="row">
-                                        <input type="checkbox" name="remember_me" id="remember_me" className="" />
-
+                                    <div className='d-flex'>
+                                        <button onClick={handleGoogleSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Google</button>
+                                        <button onClick={handleFacebookSignIn} className='me-1 d-md-none btn btn-outline-warning fw-semibold'>Facebook</button>
                                     </div>
-                                    <div className="row">
-                                        <input type="submit" value="Submit" className="btn" />
+                                    <div>
+                                        <button className='btn btn-success'>Submit</button>
                                     </div>
                                 </form>
                             </div>

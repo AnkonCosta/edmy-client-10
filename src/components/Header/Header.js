@@ -9,7 +9,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 function Header() {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     console.log(user)
     return (
         <Navbar bg="light" expand="lg" className='border border-bottom-success'>
@@ -43,24 +43,18 @@ function Header() {
                         <Navbar.Brand >
 
                             {
-                                user?.photoURL ? <img
-                                    rounded
-                                    src={user.photoURL}
-                                    width="30"
-                                    height="30"
-                                    className="d-inline-block align-top"
-                                    alt="React Bootstrap logo"
-                                    roundedCircle
-                                />
+                                user?.photoURL ? <img src={user.photoURL} alt="" />
                                     :
-                                    <FaUserCircle width='50px' className='mt-4'></FaUserCircle>
+                                    <span>
+                                        <FaUserCircle width='50px' className='mt-4'></FaUserCircle>
+                                    </span>
                             }
                         </Navbar.Brand>
 
 
                         {
                             user?.uid ? <>
-                                <Button className='mx-2' variant="outline-success"><Link to=''>Logout</Link></Button>
+                                <Button className='mx-2' variant="outline-success"><Link onClick={logOut}>Logout</Link></Button>
 
 
 

@@ -18,9 +18,9 @@ const LeftSideNav = () => {
         }
         }>
             <div class="btn-group center-btn" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-primary">Home</button>
-                <button type="button" class="btn btn-outline-success">Blog</button>
-                <button type="button" class="btn btn-outline-danger">FAQ's</button>
+                <button type="button" class="btn btn-outline-primary"><Link className='text-decoration-none text-black' to='/'>Home</Link></button>
+                <button type="button" class="btn btn-outline-success"><Link className='text-decoration-none text-black' to='/blog'>Blog</Link></button>
+                <button type="button" class="btn btn-outline-danger"><Link className='text-decoration-none text-black' to='/faqs'>FAQ's</Link></button>
             </div>
             {
                 topics.map(topic => <p key={topic.id}>

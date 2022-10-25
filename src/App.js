@@ -9,6 +9,9 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import CoursePageLayout from './layouts/CoursePageLayout';
 import SpecificTopics from './components/SpecificTopics/SpecificTopics';
+import TopicsDetails from './components/TopicsDetails/TopicsDetails';
+import Checkout from './components/Checkout/Checkout';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -24,6 +27,12 @@ function App() {
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/checkout',
+          element: <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
         },
         {
           path: '/',
@@ -43,6 +52,7 @@ function App() {
                 return fetch(`http://localhost:5000/topics/${params.id}`)
               }
             },
+
           ]
         },
         {
@@ -57,6 +67,13 @@ function App() {
           path: '/register',
           element: <Register></Register>
         },
+        {
+          path: '/details/:id',
+          element: <TopicsDetails></TopicsDetails>,
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/courses/${params.id}`)
+          }
+        }
       ]
     }
   ])
