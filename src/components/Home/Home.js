@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
-        <div className='bg-img py-5 p-5 p-md-5'>
+        <div className='bg-img py-5  p-5 p-md-5'>
             <div style={{ height: '800px' }} className='d-md-flex  justify-content-evenly align-items-center '>
                 <div>
                     <img className='img-fluid' style={{ width: '500px' }} src="https://edmy-react.hibootstrap.com/images/banner/banner-img-1.png" alt="cartoon" />
@@ -19,10 +20,10 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className='container mx-auto '>
+            <section className='container mx-auto mb-5 '>
 
                 <h1 className='hero-text text-center mb-3'>Who are we?</h1>
-                <div className='section-2'>
+                <div className='section-2 '>
                     <div>
                         <p>Come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people. They are taught the values and responsibilities needed to become active members of the community...</p>
                     </div>
@@ -33,12 +34,6 @@ const Home = () => {
                 </div>
             </section>
 
-
-
-
-            <section>
-
-            </section>
         </div >
     );
 };

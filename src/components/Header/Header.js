@@ -61,15 +61,15 @@ function Header() {
 
                         {
                             user?.uid ? <>
-                                <Button className='mx-2' variant="outline-success"><Link onClick={logOut}>Logout</Link></Button>
+                                <Button className='mx-2' variant="outline-success"><Link className='text-black text-decoration-none' onClick={logOut}>Logout</Link></Button>
 
 
 
                             </>
                                 :
                                 <>
-                                    <Button className='mx-2' variant="outline-success"><Link to='/register'>Register</Link></Button>
-                                    <Button className='mx-2' variant="outline-success"><Link to='/login'>Login</Link></Button>
+                                    <Button className='mx-2' variant="outline-success"><Link to='/register' className='text-black text-decoration-none'>Register</Link></Button>
+                                    <Button className='mx-2' variant="outline-success"><Link to='/login' className='text-black text-decoration-none'>Login</Link></Button>
                                 </>
                         }
 

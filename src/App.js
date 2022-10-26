@@ -13,6 +13,7 @@ import TopicsDetails from './components/TopicsDetails/TopicsDetails';
 import Checkout from './components/Checkout/Checkout';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -92,6 +93,7 @@ function App() {
   return (
     <div >
       <RouterProvider router={router}></RouterProvider>
+
     </div>
   );
 }
