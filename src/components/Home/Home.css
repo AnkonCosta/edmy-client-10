@@ -1,6 +1,6 @@
 .bg-img {
     background-image: url(https://edmy-react.hibootstrap.com/images/banner/banner-bg.jpg);
-    height: 800px;
+    height: 850px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,4 +10,26 @@
 
 .hero-text {
     font-size: 3em !important;
+}
+
+.section-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.section-2 img {
+    width: 100%;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .section-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-content: center;
+    }
 }

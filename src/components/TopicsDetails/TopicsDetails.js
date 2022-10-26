@@ -21,7 +21,7 @@ const TopicsDetails = () => {
 
                 <div >
                     <h1 className='h1'>{title}</h1>
-                    <button className='w-100 btn btn-danger' onClick={handlePrint}>Print This Page</button>
+                    <button className='w-50  btn btn-danger' onClick={handlePrint}>Print This Page</button>
                 </div>
             </div>
 
@@ -38,7 +38,7 @@ const TopicsDetails = () => {
                     </ul>
                     <p>Price: <span className='text-danger fw-bold'> {price}</span></p>
 
-                    <button className='btn btn-outline-warning fw-semibold'>Get Premium Access</button>
+                    <Link to={`/checkout/${_id}`}><button className='btn btn-outline-warning fw-semibold'>Get Premium Access</button></Link>
                 </div>
                 <div className='   text-center '>
                     <div className='author-bg w-50   mx-auto h-100  '>
@@ -48,7 +48,7 @@ const TopicsDetails = () => {
                             <img className='img-fluid mb-3' src={author?.img} alt="" />
                             <h4 className='fw-bold'> {author?.name}</h4>
                             <div className='d-md-flex justify-content-evenly align-items-center'>
-                                <div className='d-md-flex justify-content-evenly align-items-center '>
+                                <div className='d-flex justify-content-evenly align-items-center '>
                                     <FaStar className='me-2' width={'40px'}></FaStar>
                                     <p className='m-0 text-warning fw-bold '>{rating.number}</p>
                                 </div>

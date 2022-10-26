@@ -16,11 +16,11 @@ function Header() {
             <Container fluid>
                 <Navbar.Brand href="#home">
                     <img
-                        src="site.png"
+                        src="favicon.ico"
                         width="100"
                         height="30"
                         className="d-inline-block align-top"
-                        alt="React Bootstrap logo"
+                        alt=""
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -43,7 +43,7 @@ function Header() {
                         <Navbar.Brand >
 
                             {
-                                user?.photoURL ? <img className='rounded-circle mt-3 border' height='40px' src={user.photoURL} alt="" />
+                                user?.photoURL ? <img title={user.displayName} className='rounded-circle mt-3 border' height='40px' src={user.photoURL} alt="" />
                                     :
                                     <span>
                                         <FaUserCircle width='50px' className='mt-4'></FaUserCircle>

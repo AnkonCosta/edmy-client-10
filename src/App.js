@@ -32,7 +32,7 @@ function App() {
         {
           path: '/checkout/:id',
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/courses/${params.id}`)
+            return fetch(`https://assignment-10-firebase-auth-server-side.vercel.app/courses/${params.id}`)
           },
           element: <PrivateRoute>
             <Checkout></Checkout>
@@ -46,14 +46,14 @@ function App() {
               path: '/courses',
               element: <Courses></Courses>,
               loader: () => {
-                return fetch(`http://localhost:5000/courses`)
+                return fetch(`https://assignment-10-firebase-auth-server-side.vercel.app/courses`)
               }
             },
             {
               path: '/courses/:id',
               element: <SpecificTopics></SpecificTopics>,
               loader: ({ params }) => {
-                return fetch(`http://localhost:5000/topics/${params.id}`)
+                return fetch(`https://assignment-10-firebase-auth-server-side.vercel.app/topics/${params.id}`)
               }
             },
 
@@ -75,7 +75,7 @@ function App() {
           path: '/details/:id',
           element: <TopicsDetails></TopicsDetails>,
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/courses/${params.id}`)
+            return fetch(`https://assignment-10-firebase-auth-server-side.vercel.app/courses/${params.id}`)
           }
         }
 

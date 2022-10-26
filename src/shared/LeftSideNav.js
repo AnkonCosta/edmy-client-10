@@ -5,7 +5,7 @@ const LeftSideNav = () => {
     const [topics, setTopics] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/topics`)
+        fetch(`https://assignment-10-firebase-auth-server-side.vercel.app/topics`)
             .then(res => res.json())
             .then(data => setTopics(data))
     }, [])

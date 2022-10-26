@@ -14,8 +14,8 @@ const Checkout = () => {
         <div>
             <div class="container">
 
-                <div className='d-flex w-75 border my-5 shadow rounded justify-content-between align-items-center'>
-                    <img className='img-fluid w-50' src={image_url} alt="" />
+                <div className='d-flex  border my-5 shadow rounded justify-content-evenly align-items-center'>
+                    <img style={{ height: '130px' }} className='img-fluid rounded ' src={image_url} alt="" />
                     <div className='pe-5'>
                         <p className='h3 fw-bold'>{title}</p>
                         <p>Course Id: <span className='text-warning fw-bold'>{_id}</span></p>
@@ -25,6 +25,7 @@ const Checkout = () => {
                 </div>
                 <div class="row">
                     <div class="col-lg-4 mb-lg-0 mb-3">
+
                         <div class="card p-3">
                             <div class="img-box">
                                 <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="" />
@@ -89,10 +90,9 @@ const Checkout = () => {
                                     <div class="row">
                                         <div class="col-8">
                                             <p class="h4 mb-0">Summary</p>
-                                            <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of
-                                                product</span></p>
+                                            <p class="mb-0"><span class="fw-bold">Product: {title}</span><span class="c-green">: {title}</span></p>
                                             <p class="mb-0"><span class="fw-bold">Price:</span><span
-                                                class="c-green">:$452.90</span></p>
+                                                class="c-green">:{price}</span></p>
                                             <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
                                                 nihil neque
                                                 quisquam aut
@@ -120,19 +120,13 @@ const Checkout = () => {
                                     <div class="row">
                                         <div class="col-lg-5 mb-lg-0 mb-3">
                                             <p class="h4 mb-0">Summary</p>
-                                            <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of
-                                                product</span>
+                                            <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">:{title}</span>
                                             </p>
                                             <p class="mb-0">
                                                 <span class="fw-bold">Price:</span>
-                                                <span class="c-green">:$452.90</span>
+                                                <span class="c-green">:{price}</span>
                                             </p>
-                                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque
-                                                nihil neque
-                                                quisquam aut
-                                                repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab
-                                                quis,
-                                                iste harum ipsum hic, nemo qui!</p>
+
                                         </div>
                                         <div class="col-lg-7">
                                             <form action="" class="form">
