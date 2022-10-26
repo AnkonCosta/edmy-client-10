@@ -16,10 +16,11 @@ const CoursesOutlet = ({ course }) => {
                     <Card.Img style={{ height: '300px' }} variant="top" src={image_url} />
                     <Card.Body>
                         <Card.Title> {title}</Card.Title>
-                        <Card.Text>{details.slice(0, 80)} <Link to={`/details/${_id}`} > show more...</Link></Card.Text>
+                        <Card.Text>{details.slice(0, 100)}....</Card.Text>
                         <div className='d-flex'>
-                            <button className='btn btn-success'>Details</button>
-                            <button className='btn btn-success'>Price: {price}</button>
+                            <button className='btn btn-danger mx-2'>Price: {price}</button>
+                            <button className='btn btn-outline-success text-white-hover mx-2'><Link className='text-decoration-none text-black text-white-hover' to={`/details/${_id}`} > Details</Link></button>
+
                         </div>
                     </Card.Body>
                 </Card>
