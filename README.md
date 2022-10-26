@@ -1,6 +1,9 @@
 Welcome to Edmy Learning Website
+
 Site Name: Edmy
+
 Site URL: https://fir-auth-assignment-10.web.app
+
 
 The site is an online based course selling website. Here you can get your desired courses you want to learn.
 Let's see some of the core features of the website:
