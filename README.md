@@ -1,3 +1,52 @@
+Welcome to Edmy Learning Website
+Site Name: Edmy
+Site URL: https://fir-auth-assignment-10.web.app
+
+The site is an online based course selling website. Here you can get your desired courses you want to learn.
+Let's see some of the core features of the website:
+
+• On courses page, you can see all the courses available on our website. You can choose any course you want.
+
+•  On the course page you can see a left sidebar where you can see the course categories, it helps you to sort out the courses category wise. It gives you better user experience and helps you to get your desired course easily.
+
+• You can also get the premium access to the courses. When you go to the course details page, you can see the seller info and the premium subscription option.
+
+• You can download the course details page by tapping the download icon on the course details page at the top of the page uder nav bar.
+
+• You can make the payment in the checkout page. But before you make the payment you need to login first. Without logging in you can not get into checkout page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
