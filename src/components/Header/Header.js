@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 function Header() {
     const { user, logOut } = useContext(AuthContext);
     console.log(user)
+    const [theme, setTheme] = useState(true);
     return (
         <Navbar bg="light" expand="lg" className='border border-bottom-success'>
             <Container fluid>
@@ -38,6 +39,12 @@ function Header() {
                         <NavLink className='mx-3 fw-semibold text-decoration-none text-success' to='/faqs' >
                             FAQ's
                         </NavLink>
+                        <li onClick={() => setTheme(!theme)}>
+                            {theme ? <NavLink className='mx-3 fw-semibold text-decoration-none text-success'>Light
+                            </NavLink>
+                                : <NavLink className='mx-3 fw-semibold text-decoration-none text-success'>Dark
+                                </NavLink>}
+                        </li>
                     </Nav>
                     <Form className="d-flex">
                         <Navbar.Brand >
@@ -70,7 +77,7 @@ function Header() {
                     </Form>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 }
 
