@@ -1,8 +1,8 @@
-Welcome to Edmy Learning Website
+Welcome to Edmy Learning Website </br>
 
-Site Name: Edmy
+Site Name: Edmy </br>
 
-Site URL: https://fir-auth-assignment-10.web.app
+Site URL: https://fir-auth-assignment-10.web.app </br>
 
 
 The site is an online based course selling website. Here you can get your desired courses you want to learn.
