@@ -20,7 +20,10 @@ Let's see some of the core features of the website:
 
 
 
+</br>
+Technologies (frameworks, libraries) used in This project:
 
+React, React router, Bootstrap, React hot toast etc were used in this app.
 
 
 
